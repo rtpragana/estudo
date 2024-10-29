@@ -1,4 +1,4 @@
-name: deploy
+name: CI/CD
 
 on:
   push:
@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  DELIVERY:
+    name: Push para docker Hub
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
@@ -19,11 +20,17 @@ jobs:
           with:
             username: ${{ secrets.USER  }}
             password: ${{ secrets.PASSWD  }}
+
+        - name: Extract Medatada
+          id: meta
+          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+          with:
+            images: rtpragana/estudo
         
         - name: Build and push Docker images
           uses: docker/build-push-action@v6.9.0
           with:
             push: true
             context: .
-            tags: |
-              ${{ github.ref }}
+            tags: ${{ steps.meta.outputs.tags }}
+            labels: ${{  steps.meta.outputs.labels  }}
