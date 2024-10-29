@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Usar a imagem base do Nginx
+=======
+#U Usar a imagem base do Nginx
+>>>>>>> refs/remotes/origin/dev
 FROM nginx:alpine
 
 # Copiar arquivos HTML para o diretório padrão do Nginx
