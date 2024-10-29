@@ -1,4 +1,4 @@
-#UU Usar a imagem base do Nginx
+# Usar a imagem base do Nginx
 FROM nginx:alpine
 
 # Copiar arquivos HTML para o diretório padrão do Nginx
