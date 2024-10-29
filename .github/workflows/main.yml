@@ -26,4 +26,4 @@ jobs:
             push: true
             context: .
             tags: |
-              rtpragana/estudo:Main
+              rtpragana/estudo:${{ github.event.release.tag_name }}
