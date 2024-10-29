@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+      - DrauzioVraunelas
   workflow_dispatch:
 
 jobs:
